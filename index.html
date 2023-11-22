@@ -6,7 +6,10 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
       <!-- BOOTSTRAP -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      />
       <link rel="stylesheet" href="./assets/css/style.css" />
       <title>Taskmaster Pro</title>
    </head>
@@ -19,7 +22,8 @@
                id="create-task"
                class="btn btn-block btn-success"
                data-toggle="modal"
-               data-target="#task-form-modal">
+               data-target="#task-form-modal"
+            >
                Add Task
             </button>
             <button id="remove-tasks" class="btn btn-block btn-danger">Delete All Tasks</button>
@@ -30,9 +34,38 @@
             </p>
          </header>
          <main class="col-12 col-lg-9">
-            <div class="m-5">
-               <h2>To Do</h2>
-               <ul id="list-toDo" class="list-group"></ul>
+            <div class="m-5 row justify-content-around">
+               <div class="col-12 col-md-6 col-xl-3 mb-3">
+                  <h2>To Do</h2>
+                  <ul id="list-toDo" class="list-group"></ul>
+               </div>
+               <div class="col-12 col-md-6 col-xl-3 mb-3">
+                  <h2>In Progress</h2>
+                  <ul id="list-inProgress" class="list-group">
+                     <li class="list-group-item">
+                        <span class="badge badge-primary badge-pill">05/28/2026</span>
+                        <p class="m-1">Sample task in progress</p>
+                     </li>
+                  </ul>
+               </div>
+               <div class="col-12 col-md-6 col-xl-3 mb-3">
+                  <h2>In Review</h2>
+                  <ul id="list-inReview" class="list-group">
+                     <li class="list-group-item">
+                        <span class="badge badge-primary badge-pill">05/28/2026</span>
+                        <p class="m-1">Sample task in review</p>
+                     </li>
+                  </ul>
+               </div>
+               <div class="col-12 col-md-6 col-xl-3 mb-3">
+                  <h2>Done</h2>
+                  <ul id="list-inReview" class="list-group">
+                     <li class="list-group-item">
+                        <span class="badge badge-primary badge-pill">05/28/2026</span>
+                        <p class="m-1">Sample task done</p>
+                     </li>
+                  </ul>
+               </div>
             </div>
          </main>
       </div>
@@ -74,7 +107,7 @@
          </div>
       </div>
 
-<!-- JQUERY, POPPER, BOOTSTRAP -->
+      <!-- JQUERY, POPPER, BOOTSTRAP -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
