@@ -25,7 +25,6 @@ var loadTasks = function () {
 
    //* loop over tasks object list and array properties
    $.each(tasks, function (list, arr) {
-      console.log(list, arr);
       //* then loop over sub-array
       arr.forEach(function (task) {
          createTask(task.text, task.date, list); //* creates html for task
@@ -110,7 +109,6 @@ $("#task-form-modal").on("shown.bs.modal", function () {
 
 //*save button in modal was clicked
 $("#task-form-modal .btn-primary").click(function () {
-   console.log("THIS: ", this);
    //*get form values
    var taskText = $("#modalTaskDescription").val();
    var taskDate = $("#modalDueDate").val();

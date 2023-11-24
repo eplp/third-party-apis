@@ -10,6 +10,12 @@
          rel="stylesheet"
          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
       />
+      <!--* added CDN for jquery-ui  -->
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudfare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"
+      />
+      />
 
       <link rel="stylesheet" href="./assets/css/style.css" />
       <title>Taskmaster Pro</title>
@@ -45,41 +51,21 @@
                <div class="col-12 col-md-6 col-xl-3 mb-3">
                   <!--* added classes tp card header  -->
                   <h2 class="card-header bg-dark text-light">To Do</h2>
-                  <ul id="list-toDo" class="list-group">
-                     <li class="list-group-item">
-                        <span class="badge badge-primary badge-pill">05/28/2026</span>
-                        <p class="m-1">Sample task in To Do</p>
-                     </li>
-                  </ul>
+                  <ul id="list-toDo" class="list-group"></ul>
                </div>
 
                <!--* Bootstrap card -->
                <div class="col-12 col-md-6 col-xl-3 mb-3">
                   <h2 class="card-header bg-dark text-light">In Progress</h2>
-                  <ul id="list-inProgress" class="list-group">
-                     <li class="list-group-item">
-                        <span class="badge badge-primary badge-pill">05/28/2026</span>
-                        <p class="m-1">Sample task in progress</p>
-                     </li>
-                  </ul>
+                  <ul id="list-inProgress" class="list-group"></ul>
                </div>
                <div class="col-12 col-md-6 col-xl-3 mb-3">
                   <h2 class="card-header bg-dark text-light">In Review</h2>
-                  <ul id="list-inReview" class="list-group">
-                     <li class="list-group-item">
-                        <span class="badge badge-primary badge-pill">05/28/2026</span>
-                        <p class="m-1">Sample task in review</p>
-                     </li>
-                  </ul>
+                  <ul id="list-inReview" class="list-group"></ul>
                </div>
                <div class="col-12 col-md-6 col-xl-3 mb-3">
                   <h2 class="card-header bg-dark text-light">Done</h2>
-                  <ul id="list-inReview" class="list-group">
-                     <li class="list-group-item">
-                        <span class="badge badge-primary badge-pill">05/28/2026</span>
-                        <p class="m-1">Sample task done</p>
-                     </li>
-                  </ul>
+                  <ul id="list-inReview" class="list-group"></ul>
                </div>
             </div>
 
@@ -139,6 +125,8 @@
 
       <!-- JQUERY, POPPER, BOOTSTRAP -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <!--* added CDN jquery-ui   -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
       <script src="./assets/js/script.js"></script>
