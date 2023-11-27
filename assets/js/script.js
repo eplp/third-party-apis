@@ -138,5 +138,104 @@ $("#remove-tasks").on("click", function () {
    saveTasks();
 });
 
+//* add sortable feature to elements of each list
+//* The jQuery UI method, sortable(), turns every element with the class list-group
+//* into a sortable list. The connectWith property then linked these sortable lists
+//* with any other lists that have the same class.
+
+// $(".card .list-group").sortable({ connectWith: $(".card .list-group") });
+// $(".list-group").sortable({ connectWith: $(".list-group") });
+//! OPTIONS
+
+//* connectWith - A selector of other sortable elements that the items from this list should be connected to.
+//* This is a one- way relationship, if you want the items to be connected in both directions, the
+//* connectWith option must be set on both sortable elements.
+
+//* If scroll is set to true, the page scrolls when coming to an edge.
+//* tolerance - Specifies which mode to use for testing whether the item being moved is hovering over
+//* another item.Possible values:
+//* "intersect": The item overlaps the other item by at least 50%.
+//* "pointer": The mouse pointer overlaps the other item.
+//* Allows for a helper element to be used for dragging display.
+//* Multiple types supported:
+//* String: If set to "clone", then the element will be cloned and the clone will be dragged instead of the original. This is necessary to prevent click events from accidentally triggering on the original element.
+//* Function: A function that will return a DOMElement to use while dragging. The function receives the event and the element being sorted.
+//! EVENTS
+// todo: The activate and deactivate events trigger once for all connected lists as soon as dragging starts and stops.
+//* activate - This event is triggered when using connected lists, every connected list on drag start receives it.
+//* deactivate - This event is triggered when sorting was stopped, is propagated to all possible connected lists.
+// todo: The over and out events trigger when a dragged item enters or leaves a connected list.
+//* over - This event is triggered when a sortable item is moved into a sortable list.
+//* out - This event is triggered when a sortable item is moved away from a sortable list.
+// todo: The update event triggers when the contents of a list have changed (e.g., the items were re-ordered, an item was removed, or an item was added).
+//* update - This event is triggered when the user stopped sorting and the DOM position has changed.
+
+//* var tempArr = []; //* array to store the task data in
+//* update function loop over current set of children in sortable list
+//* var text = $(this).find("p").text().trim();  "this" refers to the task <li>
+$(".list-group").sortable({
+   connectWith: $(".list-group"),
+   scroll: false,
+   tolerance: "pointer",
+   helper: "clone",
+   activate: function (event) {
+      console.log("activate", this);
+   },
+   deactivate: function (event) {
+      console.log("deactivate", this);
+   },
+   over: function (event) {
+      console.log("over", event.target);
+   },
+   out: function (event) {
+      console.log("out", event.target);
+   },
+   update: function (event) {
+      var tempArr = [];
+      $(this)
+         .children()
+         .each(function () {
+            var text = $(this).find("p").text().trim();
+            var date = $(this).find("span").text().trim();
+
+            tempArr.push({
+               text: text,
+               date: date,
+            });
+         });
+      //* trim down list's ID to match object property
+      var arrName = $(this).attr("id").replace("list-", "");
+
+      //* update array on tasks object and save
+      tasks[arrName] = tempArr;
+      saveTasks();
+   },
+
+   //! Events like activate and over would be great for styling. We could change the color of elements at each step to let the user know dragging is working correctly.
+   //! For now, we're only concerned with the update event, because an updated list signifies the need to re- save tasks in localStorage.
+   //! Remember that an update can happen to two lists at once if a task is dragged from one column to another.
+});
+
+//*  ui. This variable is an object that contains a property called draggable
+//* According to the documentation, draggable is "a jQuery object representing the draggable element."
+//* Then we should be able to call DOM methods on it!
+//* accept: ".card .list-group-item"
+//* we do not need to call saveTasks() because removing a task from any of the
+//* lists triggers a sortable update(), meaning the sortable calls saveTasks() 
+$("#trash").droppable({
+   accept: ".list-group-item",
+   tolerance: "touch",
+   drop: function (event, ui) {
+      console.log("drop");
+      ui.draggable.remove();
+   },
+   over: function (event, ui) {
+      console.log("over");
+   },
+   out: function (event, ui) {
+      console.log("out");
+   },
+});
+
 //*load tasks for the first time
 loadTasks();

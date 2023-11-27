@@ -127,6 +127,12 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <!--* added CDN jquery-ui   -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+      <!-- add touch punch here -->
+      <!-- touch punch: mobile devices have their own set of touch events separate from browser events, and jQuery UI doesn't support these events out of the box. -->
+      <!-- jQuery UI user interface library does not support the use of touch events in their widgets and interactions. This means that the slick UI you designed and tested in your desktop browser will fail on most, if not all, touch-enabled mobile devices, because jQuery UI listens to mouse events—mouseover, mousemove and mouseout—not touch events—touchstart, touchmove and touchend. -->
+
+      <!-- That's where jQuery UI Touch Punch comes in. Touch Punch works by using simulated events to map touch events to their mouse event analogs. Simply include the script on your page and your touch events will be turned into their corresponding mouse events to which jQuery UI will respond as expected. -->
+      <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
       <script src="./assets/js/script.js"></script>
