@@ -143,10 +143,7 @@ $("#remove-tasks").on("click", function () {
 //* into a sortable list. The connectWith property then linked these sortable lists
 //* with any other lists that have the same class.
 
-// $(".card .list-group").sortable({ connectWith: $(".card .list-group") });
-// $(".list-group").sortable({ connectWith: $(".list-group") });
 //! OPTIONS
-
 //* connectWith - A selector of other sortable elements that the items from this list should be connected to.
 //* This is a one- way relationship, if you want the items to be connected in both directions, the
 //* connectWith option must be set on both sortable elements.
@@ -173,8 +170,8 @@ $("#remove-tasks").on("click", function () {
 //* var tempArr = []; //* array to store the task data in
 //* update function loop over current set of children in sortable list
 //* var text = $(this).find("p").text().trim();  "this" refers to the task <li>
-$(".list-group").sortable({
-   connectWith: $(".list-group"),
+$(".card .list-group").sortable({
+   connectWith: $(".card .list-group"),
    scroll: false,
    tolerance: "pointer",
    helper: "clone",
@@ -223,7 +220,7 @@ $(".list-group").sortable({
 //* we do not need to call saveTasks() because removing a task from any of the
 //* lists triggers a sortable update(), meaning the sortable calls saveTasks() 
 $("#trash").droppable({
-   accept: ".list-group-item",
+   accept: ".card .list-group-item",
    tolerance: "touch",
    drop: function (event, ui) {
       console.log("drop");
